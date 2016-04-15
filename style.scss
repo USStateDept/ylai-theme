@@ -1,0 +1,18 @@
+/*!
+ Theme Name:   YLAI Theme
+ Description:  YLAI's theme
+ Author:       Office of Design, U.S. Department of State
+ Template:     corona
+ Version:      0.0.1
+ License:      MIT
+ Text Domain:  ylai
+*/
+
+
+@import '../corona/styles/variables';
+@import '../corona/styles/mixins';
+
+@import '../corona/styles/sites/young_leaders/variables';
+
+@import '../corona/styles/modules/forms';
+@import '../corona/styles/sites/young_leaders/style';

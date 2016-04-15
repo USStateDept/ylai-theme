@@ -1,0 +1,23 @@
+{
+  "name": "ylai-theme",
+  "version": "0.0.1",
+  "description": "YLAI's theme",
+  "main": "index.php",
+  "scripts": {
+    "sass": "node-sass --output-style compressed style.scss > style.css",
+    "watch:sass": "onchange ./styles/**/*.scss ./styles/*.scss ./style.scss -- npm run sass",
+    "uglify": "uglifyjs js/src/*.js -o js/dist/script.js",
+    "watch:js": "onchange ./js/src/*.js -v -- npm run uglify",
+    "server": "browser-sync start --proxy 'ylai.dev' --files './*.php' 'style.css' 'images/dist/*' 'js/dist/*.js'",
+    "watch": "parallelshell 'npm run server' 'npm run watch:sass' 'npm run watch:js'"
+  },
+  "author": "Office of Design, U.S. Department of State",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.12.3",
+    "node-sass": "^3.4.2",
+    "normalize-css": "^2.3.1",
+    "onchange": "^2.3.0",
+    "parallelshell": "^2.0.0"
+  }
+}

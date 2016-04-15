@@ -1,0 +1,11 @@
+{
+    "name": "usstatedept/ylai",
+    "description": "YLAI's theme, a child of Corona",
+    "version": "0.1",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "type": "wordpress-theme",
+    "require": {
+        "composer/installers": "v1.0.21"
+    }
+}
