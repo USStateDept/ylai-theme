@@ -14,9 +14,11 @@
 
 get_header(); ?>
 
+	<div class="cta">
+		<a href="https://ylai.edit.america.gov/application/"><img class="cta-image" src="https://ylai.edit.america.gov/wp-content/uploads/sites/2/2016/04/banner2.jpg" alt="President Obama shaking hands with honorees" /></a>
+	</div>
 	<div class="content-sidebar-wrap">
 		<main id="main" class="content" role="main">
-
     </main>
   </div>
 <?php
