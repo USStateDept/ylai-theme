@@ -9,7 +9,8 @@
     "uglify": "uglifyjs js/src/*.js -o js/dist/script.js",
     "watch:js": "onchange ./js/src/*.js -v -- npm run uglify",
     "server": "browser-sync start --proxy 'ylai.dev' --files './*.php' 'style.css' 'images/dist/*' 'js/dist/*.js'",
-    "watch": "parallelshell 'npm run server' 'npm run watch:sass' 'npm run watch:js'"
+    "watch": "parallelshell 'npm run server' 'npm run watch:sass' 'npm run watch:js'",
+    "prod": "parallelshell 'npm run sass' 'npm run uglify'"
   },
   "author": "Office of Design, U.S. Department of State",
   "license": "MIT",
