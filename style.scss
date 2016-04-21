@@ -11,8 +11,62 @@
 
 @import '../corona/styles/variables';
 @import '../corona/styles/mixins';
-
 @import '../corona/styles/sites/young_leaders/variables';
-
 @import '../corona/styles/modules/forms';
 @import '../corona/styles/sites/young_leaders/style';
+
+
+
+
+/*------------------------------------*\
+  #VARIABLE-OVERRIDES
+\*------------------------------------*/
+
+$first-footer-bg: rgb(229, 232, 233);
+$first-footer-accent: rgb(61, 61, 61);
+$second-footer-bg: rgb(217, 220, 222);
+$second-footer-accent: rgb(61, 61, 61);
+
+
+
+
+/*------------------------------------*\
+  #Footer
+\*------------------------------------*/
+
+.site-footer p {
+  color: $second-footer-accent;
+}
+
+.footer-1 {
+  background: $first-footer-bg;
+  padding: em(10);
+}
+
+.footer-1 a {
+  color: $first-footer-accent;
+}
+
+.footer-1 a:hover {
+  color: darken($first-footer-accent, 15%);
+}
+
+.footer-1 li {
+  border: 0;
+  padding: 0;
+
+  @include bp($tablet) {
+    float: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.footer-1 li:hover {
+  border: 0;
+}
+
+.footer-2 {
+  background: $second-footer-bg url(../corona/images/dist/flag.png) no-repeat em(32) 50%;
+  font-size: em(14);
+}
