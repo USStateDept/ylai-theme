@@ -31,7 +31,72 @@ $second-footer-accent: rgb(61, 61, 61);
 
 
 /*------------------------------------*\
-  #Footer
+  #FORMS
+\*------------------------------------*/
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.button,
+.button-alt {
+  width: 100%;
+}
+
+.button,
+.button-alt {
+  text-decoration: none;
+}
+
+.button-alt {
+  background-color: $button-bg-alt;
+}
+
+.button-alt,
+.button-alt:link,
+.button-alt:visited,
+.button-alt:hover,
+.button-alt:active {
+  color: $button-font-color-alt;
+}
+
+
+
+
+/*------------------------------------*\
+  #SIDBARS
+\*------------------------------------*/
+
+.sidebar-ready,
+.sidebar-help {
+  margin: 1em 0;
+  padding: 1em;
+}
+
+.sidebar-ready {
+  border: $border;
+}
+
+.sidebar-ready .widget-title,
+.sidebar-help .widget-title {
+  font-size: em(24, 18);
+  margin-top: 0;
+}
+
+.sidebar-ready .deadline p {
+  margin-bottom: 0;
+}
+
+.sidebar-ready .deadline,
+.sidebar-ready .button-alt {
+  text-align: center;
+}
+
+
+
+
+/*------------------------------------*\
+  #FOOTER
 \*------------------------------------*/
 
 .site-footer p {
