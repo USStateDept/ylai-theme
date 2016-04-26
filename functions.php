@@ -9,4 +9,7 @@ function ylai_enqueue_scripts() {
     wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Oxygen' );
 }
 add_action( 'wp_enqueue_scripts', 'ylai_enqueue_scripts' );
+
+add_image_size( 'post-thumbnail', 370, 255 );
 ?>
+ 
