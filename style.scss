@@ -44,20 +44,20 @@ input[type="submit"],
 }
 
 .button,
-.button-alt {
-  text-decoration: none;
-}
-
-.button-alt {
-  background-color: $button-bg-alt;
-}
-
+.button:link,
+.button:visited,
+.button:hover,
+.button:active,
 .button-alt,
 .button-alt:link,
 .button-alt:visited,
 .button-alt:hover,
 .button-alt:active {
-  color: $button-font-color-alt;
+  color: $button-font-color;
+}
+
+.button-alt {
+  background-color: $button-bg-alt;
 }
 
 
@@ -73,24 +73,28 @@ input[type="submit"],
 
 
 
+
 /*------------------------------------*\
   #SIDBARS
 \*------------------------------------*/
 
-.sidebar-ready,
-.sidebar-help {
-  margin: 1em 0;
+.sidebar .widget {
+  margin: 1em 0 0;
   padding: 1em;
+}
+
+.sidebar ul {
+  padding: 1em;
+}
+
+.sidebar .widget-title,
+.sidebar .widget-title {
+  font-size: em(24, 18);
+  margin: 0;
 }
 
 .sidebar-ready {
   border: $border;
-}
-
-.sidebar-ready .widget-title,
-.sidebar-help .widget-title {
-  font-size: em(24, 18);
-  margin-top: 0;
 }
 
 .sidebar-ready .deadline p {
@@ -139,6 +143,40 @@ input[type="submit"],
 
 .footer-1 li:hover {
   border: 0;
+}
+
+.footer-1 .widget {
+  @include bp($tablet) {
+    display: inline-block;
+  }
+}
+
+/* AddThis */
+.footer-1 .widget_text {
+  @include bp($tablet) {
+    float: right;
+    margin-top: em(20);
+    width: em(180);
+  }
+}
+
+.footer-1 .at-follow-tbx-element {
+  margin: 1em 0 0 0.875em;
+
+  @include bp($tablet) {
+    margin: 0;
+  }
+}
+
+.footer-1 .at-follow-tbx-element p {
+  margin: 0;
+  padding: 0;
+  line-height: em(32, 14);
+
+  @include bp($tablet) {
+    float: left;
+    margin-right: 0.25em;
+  }
 }
 
 .footer-2 {
