@@ -11,6 +11,10 @@ function ylai_enqueue_scripts() {
 add_action( 'wp_enqueue_scripts', 'ylai_enqueue_scripts' );
 
 
+add_image_size( 'post-thumbnail', 720, 540 );
+
+ 
+
 function ylai_google_tag_manager() {
   $gtm = "<!-- Google Tag Manager -->
 <noscript><iframe src='//www.googletagmanager.com/ns.html?id=GTM-P4JRP8'
@@ -25,3 +29,4 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   echo($gtm);
 }
 add_action( 'google_tag_manager', 'ylai_google_tag_manager' );
+
