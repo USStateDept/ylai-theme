@@ -155,7 +155,7 @@ input[type="submit"],
 .footer-1 .widget_text {
   @include bp($tablet) {
     float: right;
-    margin-top: em(20);
+    margin-top: em(36);
     width: em(180);
   }
 }
