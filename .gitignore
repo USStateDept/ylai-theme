@@ -1,7 +1,3 @@
-js/dist
-images/dist
-style.css
-style.css.map
 node_modules/
 .DS_Store
 .sass-cache/
