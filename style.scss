@@ -3,29 +3,25 @@
  Description:  YLAI's theme
  Author:       Office of Design, U.S. Department of State
  Template:     corona
- Version:      1.2.1
+ Version:      1.3.0
  License:      MIT
  Text Domain:  ylai
 */
 
 
+// Import variables. Each subsequent @import overrides the previous
 @import '../corona/styles/variables';
-@import '../corona/styles/mixins';
 @import '../corona/styles/sites/young_leaders/variables';
+@import 'styles/_variables.scss';
+
+// Import mixins
+@import '../corona/styles/mixins';
+
+// Import prettier, cross browser form element styles
 @import '../corona/styles/modules/forms';
+
+// Import common Young Leaders styles
 @import '../corona/styles/sites/young_leaders/style';
-
-
-
-
-/*------------------------------------*\
-  #VARIABLE-OVERRIDES
-\*------------------------------------*/
-
-$first-footer-bg: rgb(229, 232, 233);
-$first-footer-accent: rgb(61, 61, 61);
-$second-footer-bg: rgb(217, 220, 222);
-$second-footer-accent: rgb(61, 61, 61);
 
 
 
@@ -41,23 +37,6 @@ input[type="submit"],
 .button,
 .button-alt {
   width: 100%;
-}
-
-.button,
-.button:link,
-.button:visited,
-.button:hover,
-.button:active,
-.button-alt,
-.button-alt:link,
-.button-alt:visited,
-.button-alt:hover,
-.button-alt:active {
-  color: $button-font-color;
-}
-
-.button-alt {
-  background-color: $button-bg-alt;
 }
 
 
@@ -113,21 +92,8 @@ input[type="submit"],
   #FOOTER
 \*------------------------------------*/
 
-.site-footer p {
-  color: $second-footer-accent;
-}
-
 .footer-1 {
-  background: $first-footer-bg;
   padding: em(10);
-}
-
-.footer-1 a {
-  color: $first-footer-accent;
-}
-
-.footer-1 a:hover {
-  color: darken($first-footer-accent, 15%);
 }
 
 .footer-1 li {
@@ -180,6 +146,6 @@ input[type="submit"],
 }
 
 .footer-2 {
-  background: $second-footer-bg url(../corona/images/dist/flag.png) no-repeat em(32) 50%;
+  background-position: em(28) 50%;
   font-size: em(14);
 }
