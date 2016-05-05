@@ -2,7 +2,36 @@
   #VARIABLES
 \*------------------------------------*/
 
+// Typography
+$font-default: 'Oxygen', sans-serif;
+$font-color: rgb(79, 79, 79);
+$link-color: rgb(65, 145, 191);
+$link-visited: rgb(141, 189, 217);
+$link-hover: rgb(16, 85, 126);
+$widget-font-color: rgb(127, 128, 128);
+
+// Footer
 $first-footer-bg: rgb(229, 232, 233);
 $first-footer-accent: rgb(61, 61, 61);
 $second-footer-bg: rgb(217, 220, 222);
 $second-footer-accent: rgb(61, 61, 61);
+
+// Form Variables
+$disabled-bg: rgb(204, 204, 204);
+$disabled-font-color: rgb(238, 238, 238);
+$disabled-border: darken($disabled-bg, 10%);
+$placeholder-color: rgb(79, 79, 79);
+$button-bg: rgb(16, 85, 126);
+$button-bg-alt: rgb(186, 30, 44);
+$button-font-color: rgb(255, 255, 255);
+$button-font-color-alt: rgb(255, 255, 255);
+$form-input-padding: 10px;
+
+// Misc colors
+$accent: rgb(65, 145, 191);
+$border-color: rgb(222, 222, 222);
+$body-bg: rgb(230, 230, 230);
+
+// Repeated styles
+$box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+$border: 1px solid $border-color;
