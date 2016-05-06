@@ -3,7 +3,7 @@
  Description:  YLAI's theme
  Author:       Office of Design, U.S. Department of State
  Template:     corona
- Version:      1.3.0
+ Version:      1.4.0
  License:      MIT
  Text Domain:  ylai
 */
@@ -11,7 +11,6 @@
 
 // Import variables. Each subsequent @import overrides the previous
 @import '../corona/styles/variables';
-@import '../corona/styles/sites/young_leaders/variables';
 @import 'styles/_variables.scss';
 
 // Import mixins
@@ -20,8 +19,114 @@
 // Import prettier, cross browser form element styles
 @import '../corona/styles/modules/forms';
 
-// Import common Young Leaders styles
-@import '../corona/styles/sites/young_leaders/style';
+
+
+
+/*------------------------------------*\
+  #BASE
+\*------------------------------------*/
+
+body {
+  background: $body-bg;
+  color: $font-color;
+  font-family: $font-default;
+}
+
+p {
+  line-height: 1.643;
+}
+
+a {
+  border-bottom: 1px dotted $link-color;
+  color: $link-color;
+  text-decoration: none;
+}
+
+a:visited {
+  border-bottom: 1px dotted $link-visited;
+  color: $link-visited;
+  text-decoration: none;
+}
+
+a:hover {
+  border-bottom: 1px dotted $link-hover;
+  color: $link-hover;
+  text-decoration: none;
+}
+
+.site-container {
+  background: white;
+  border-top: 5px solid $accent;
+
+  @include bp($tablet) {
+    box-shadow: $box-shadow;
+    margin: 0 auto;
+    max-width: 1300px;
+    width: 90%;
+  }
+}
+
+.content-sidebar-wrap {
+  background: white;
+
+  @include bp($tablet) {
+    padding: 0 em(32) em(32);
+  }
+}
+
+
+
+
+/*------------------------------------*\
+  #HEADER
+\*------------------------------------*/
+
+.site-header a {
+  border: 0;
+}
+
+
+
+
+/*------------------------------------*\
+  #NAVIGATION
+\*------------------------------------*/
+
+.nav-primary ul {
+  @include bp($laptop) {
+    margin: em(16) 0;
+  }
+}
+
+.menu-primary {
+  border-bottom: em(3) solid $accent;
+  box-shadow: 0 em(10) em(15) em(-10) $font-color;
+  overflow: hidden;
+
+  @include bp($tablet) {
+		width: 90%;
+  }
+
+	@include bp($laptop) {
+    border: 0;
+    box-shadow: none;
+	}
+}
+
+.menu-primary a {
+  font-weight: bold;
+  padding: em(12) em(15);
+}
+
+.menu-primary a:link,
+.menu-primary a:visited,
+.menu-primary a:hover {
+  border: 0;
+}
+
+.menu-primary a:visited {
+  color: $link-color;
+}
 
 
 
@@ -29,6 +134,29 @@
 /*------------------------------------*\
   #FORMS
 \*------------------------------------*/
+
+.button,
+.button:link,
+.button:visited,
+.button:hover,
+.button:active,
+.button-alt,
+.button-alt:link,
+.button-alt:visited,
+.button-alt:hover,
+.button-alt:active {
+  border: 0;
+  color: $button-font-color;
+  text-decoration: none;
+}
+
+.button-alt,
+.button-alt:link,
+.button-alt:visited,
+.button-alt:hover,
+.button-alt:active {
+  background-color: $button-bg-alt;
+}
 
 button,
 input[type="button"],
@@ -43,11 +171,18 @@ input[type="submit"],
 
 
 /*------------------------------------*\
-  #CALL-TO-ACTION
+  #WIDGET
 \*------------------------------------*/
 
-.button.cta-button {
-  background-color: $button-bg-alt;
+.widget-title,
+.widget-title a,
+.widget_rss .widget-title a {
+  font-size: em(18);
+  color: $font-color;
+}
+
+.rss-widget-icon {
+  display: none;
 }
 
 
@@ -56,6 +191,30 @@ input[type="submit"],
 /*------------------------------------*\
   #SIDBARS
 \*------------------------------------*/
+
+.sidebar ul {
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar li::before {
+  content: '';
+  padding: 0;
+}
+
+.sidebar li {
+  list-style-type: none;
+  margin: 0;
+}
+
+.sidebar a,
+.sidebar a:link,
+.sidebar a:visited,
+.sidebar a:hover,
+.sidebar a:active {
+  border: 0;
+  text-decoration: none;
+}
 
 .sidebar .widget {
   margin: 1em 0 0;
@@ -92,23 +251,50 @@ input[type="submit"],
   #FOOTER
 \*------------------------------------*/
 
-.footer-1 {
-  padding: em(10);
-}
-
-.footer-1 li {
-  border: 0;
-  padding: 0;
-
+.site-footer {
   @include bp($tablet) {
-    float: none;
-    margin: 0;
-    padding: 0;
+    box-shadow: $box-shadow;
+    margin: 0 auto;
+    max-width: 1300px;
   }
 }
 
-.footer-1 li:hover {
+.site-footer p {
+  color: $second-footer-accent;
+  font-size: em(14);
+  margin: 0;
+  padding: em(32, 14) em(32, 14) em(32, 14) em(85, 14);
+}
+
+.site-footer a {
   border: 0;
+}
+
+.site-footer .widget {
+  margin: 0;
+}
+
+.footer-1 {
+  background: $first-footer-bg;
+  padding: em(10);
+}
+
+.footer-1 .menu {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.footer-1 a {
+  color: $first-footer-accent;
+  font-size: em(14);
+  padding: 0 em(16, 14);
+  text-decoration: none;
+}
+
+.footer-1 li {
+  list-style-type: none;
+  padding: 0;
 }
 
 .footer-1 .widget {
@@ -146,6 +332,95 @@ input[type="submit"],
 }
 
 .footer-2 {
-  background-position: em(28) 50%;
+  background: $second-footer-bg url(../corona/images/dist/flag.png) no-repeat em(28) 50%;
   font-size: em(14);
+}
+
+
+
+
+/*------------------------------------*\
+  #POSTS-AND-PAGES
+\*------------------------------------*/
+
+.entry-title {
+  margin-top: 0;
+}
+
+
+
+
+/*------------------------------------*\
+  #HOMEPAGE
+\*------------------------------------*/
+
+.home .content {
+  width: 100%;
+}
+
+.button.cta-button {
+  background-color: $button-bg-alt;
+}
+
+.post-list-container {
+  margin-top: em(35);
+}
+
+.post-list-container .entry {
+  float: left;
+
+  @include bp($tablet) {
+    padding: 0 1em;
+    width: 33%;
+  }
+}
+
+.post-list-container h2 {
+  line-height: 1.2em;
+}
+
+.post-list-container h2 a  {
+  border: 0;
+  color: $font-color;
+  text-decoration: none;
+  font-size: em(20, 24);
+}
+
+.post-list-container .post-image-anchor {
+  border: 0;
+}
+
+.post-list-container .entry-content {
+  font-size: 1em;
+}
+
+
+
+
+/*------------------------------------*\
+  #SIGNUP-FORM
+\*------------------------------------*/
+
+.mc4wp-form {
+  background: $accent;
+  padding: em(16);
+}
+
+.mc4wp-form h2,
+.mc4wp-form p {
+  color: white;
+}
+
+.mc4wp-form h2 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+// Hard coding in px so the css-select plugin sizes properly
+.mc4wp-form select {
+  font-size: 14px;
+}
+
+.mc4wp-form-fields label {
+  @extend %visuallyhidden;
 }
