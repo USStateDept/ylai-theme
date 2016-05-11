@@ -4,7 +4,7 @@
   "description": "YLAI's theme",
   "main": "index.php",
   "scripts": {
-    "sass": "node-sass --output-style compressed style.scss > style.css",
+    "sass": "node-sass --importer node_modules/node-sass-json-importer/dist/node-sass-json-importer.js --output-style compressed style.scss > style.css",
     "watch:sass": "onchange ./styles/**/*.scss ./styles/*.scss ./style.scss -- npm run sass",
     "uglify": "uglifyjs js/src/*.js -o js/dist/script.js",
     "imagemin": "imagemin ./images/src/* ./images/dist",
@@ -20,6 +20,7 @@
     "browser-sync": "^2.12.3",
     "imagemin-cli": "^2.1.0",
     "node-sass": "^3.4.2",
+    "node-sass-json-importer": "^1.0.6",
     "normalize-css": "^2.3.1",
     "onchange": "^2.3.0",
     "parallelshell": "^2.0.0",
