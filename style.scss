@@ -1,9 +1,11 @@
+@import 'version.json';
+
 /*!
  Theme Name:   YLAI Theme
  Description:  YLAI's theme
  Author:       Office of Design, U.S. Department of State
  Template:     corona
- Version:      1.4.0
+ Version:      #{$version}
  License:      MIT
  Text Domain:  ylai
 */
