@@ -5,7 +5,7 @@
 
 function ylai_add_constants( $constants ) {
   $ylai_constants = array(
-    'CHILD_THEME_VERSION' => corona_get_theme_version( get_stylesheet_directory_uri() . '/version.json' ),
+    'CHILD_THEME_VERSION' => corona_get_theme_version( get_stylesheet_directory() . '/version.json' ),
   );
 
   $constants = array_merge( $ylai_constants, $constants );
