@@ -1,0 +1,26 @@
+# Copyright (C) 2016 Office of Design, U.S. Department of State
+# This file is distributed under the MIT.
+msgid ""
+msgstr ""
+"Project-Id-Version: YLAI Theme 6.6.6\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/ylai\n"
+"POT-Creation-Date: 2016-05-16 16:32:44+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+
+#. Theme Name of the plugin/theme
+msgid "YLAI Theme"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "YLAI's theme"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Office of Design, U.S. Department of State"
+msgstr ""
