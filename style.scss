@@ -220,7 +220,6 @@ input[type="submit"],
 
 .sidebar .widget {
   margin: 1em 0 0;
-  padding: 1em;
 }
 
 .sidebar ul {
@@ -244,6 +243,10 @@ input[type="submit"],
 .sidebar-ready .deadline,
 .sidebar-ready .button-alt {
   text-align: center;
+}
+
+.flexible-sidebar .sidebar-ready {
+  padding: 1em;
 }
 
 
@@ -345,8 +348,17 @@ input[type="submit"],
   #POSTS-AND-PAGES
 \*------------------------------------*/
 
-.entry-title {
+.entry-title,
+.page-title {
+  line-height: 1.2em;
   margin-top: 0;
+}
+
+.entry-title a  {
+  border: 0;
+  color: $font-color;
+  text-decoration: none;
+  font-size: em(20, 24);
 }
 
 
@@ -377,23 +389,31 @@ input[type="submit"],
   }
 }
 
-.post-list-container h2 {
-  line-height: 1.2em;
-}
-
-.post-list-container h2 a  {
-  border: 0;
-  color: $font-color;
-  text-decoration: none;
-  font-size: em(20, 24);
-}
-
 .post-list-container .post-image-anchor {
   border: 0;
 }
 
 .post-list-container .entry-content {
   font-size: 1em;
+}
+
+
+
+
+/*------------------------------------*\
+  #ARCHIVE
+\*------------------------------------*/
+
+.archive .wp-post-image,
+.search .wp-post-image {
+  margin: 1em 0 1em;
+}
+
+.archive .hentry,
+.search .hentry {
+  border-bottom: $border;
+  margin-top: 1.5em;
+  padding-bottom: 1.5em;
 }
 
 
