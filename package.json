@@ -12,7 +12,8 @@
     "watch:image": "onchange ./images/src/* -- npm run imagemin",
     "server": "browser-sync start --proxy 'ylai.dev' --files './*.php' 'style.css' 'images/dist/*' 'js/dist/*.js'",
     "watch": "parallelshell 'npm run server' 'npm run watch:sass' 'npm run watch:js' 'npm run watch:image'",
-    "prod": "parallelshell 'npm run sass' 'npm run uglify' 'npm run imagemin'"
+    "prod": "parallelshell 'npm run sass' 'npm run uglify' 'npm run imagemin'",
+    "version": "versionbump 'version.json' 'package.json' && npm run prod && git add --all"
   },
   "author": "Office of Design, U.S. Department of State",
   "license": "MIT",
@@ -24,6 +25,7 @@
     "normalize-css": "^2.3.1",
     "onchange": "^2.3.0",
     "parallelshell": "^2.0.0",
-    "uglifyjs": "^2.4.10"
+    "uglifyjs": "^2.4.10",
+    "versionbump": "git+ssh://git@github.com/IIP-Design/versionbump.git"
   }
 }
