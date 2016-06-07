@@ -33,6 +33,25 @@ add_action( 'corona_init', 'ylai_custom_image_sizes' );
 
 
 /**
+  * Add theme support for the `link` post format
+  */
+
+function ylai_link_post_format() {
+  add_theme_support( 'post-formats',
+    array(
+      'image',
+      'link',
+      'video',
+    )
+  );
+}
+
+add_action( 'after_setup_theme', 'ylai_link_post_format' );
+
+
+
+
+/**
   * Script and style enqueue
   */
 
