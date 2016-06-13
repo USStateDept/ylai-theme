@@ -101,3 +101,61 @@ function unhook_corona_posted_on() {
 }
 
 add_action( 'init', 'unhook_corona_posted_on' );
+
+
+
+
+/**
+  * Unhook Corona's default entry footer output
+  */
+
+function unhook_corona_entry_footer() {
+  remove_action( 'corona_entry_footer', 'corona_entry_footer_output' );
+}
+
+add_action( 'init', 'unhook_corona_entry_footer' );
+
+
+
+
+/**
+  * Customize the output of `corona_entry_footer` for archive pages
+  */
+
+function ylai_archive_entry_footer() {
+  if ( 'post' === get_post_type() && is_single() === false ) {
+    $categories_list = get_the_category_list( esc_html__( ', ', 'corona' ) );
+    $post_format = get_post_format();
+
+		if ( $categories_list ) {
+			printf( '<span class="cat-links">' . esc_html__( '%1$s', 'corona' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+		}
+
+    if ( $post_format ) {
+      $url = trailingslashit( sprintf( '%s/type/%s', get_site_url(), $post_format ) );
+      
+      printf( '<div class="format-links"><a href="%s">%s</a></div>', $url, ucfirst( $post_format ) );
+    }
+  }
+}
+
+add_action( 'corona_entry_footer', 'ylai_archive_entry_footer' );
+
+
+
+
+/**
+  * Customize the output of `corona_entry_footer` for posts
+  */
+
+function ylai_post_entry_footer() {
+  if ( 'post' === get_post_type() && is_single() ) {
+    $tags_list = get_the_tag_list( '', esc_html__( ', ', 'corona' ) );
+
+    if ( $tags_list ) {
+			printf( '<span class="tags-links">' . esc_html__( 'Tags: %1$s', 'corona' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+		}
+  }
+}
+
+add_action( 'corona_entry_footer', 'ylai_post_entry_footer' );
