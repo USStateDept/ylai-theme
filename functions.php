@@ -23,11 +23,39 @@ add_filter( 'corona_add_constants', 'ylai_add_constants' );
   */
 
 function ylai_custom_image_sizes() {
-  set_post_thumbnail_size( 720, 540, TRUE);
-  add_image_size( 'medium_large', 720, 540, TRUE );
+  set_post_thumbnail_size( 720, 520, true);
+  add_image_size( 'medium_large', 720, 520, true );
+  add_image_size( 'medium_large_632', 632, 457, true );
+  add_image_size( 'medium_large_300', 300, 217, true );
+  add_image_size( 'home_thumb', 359, 269, true );
 }
 
 add_action( 'corona_init', 'ylai_custom_image_sizes' );
+
+
+
+
+/**
+  * Set appropriate srcset sizes
+  *
+  * @since 3.0.0
+  */
+
+function ylai_responsive_img_sizes( $attr, $attachment, $size ) {
+  // For archive.php, home.php, search.php, etc
+  if ( $size === 'medium_large' && ! is_single() ) {
+    $attr['sizes'] = '(min-width: 48em) 300px, (min-width: 25em) 720px, 300px';
+  }
+
+  // For posts and pages
+  if ( $size === 'medium_large' && is_single() ) {
+    $attr['sizes'] = '(min-width: 75em) 720px , (min-width: 64em) 632px, (min-width: 25em) 720px, 300px';
+  }
+
+  return $attr;
+}
+
+add_filter( 'wp_get_attachment_image_attributes', 'ylai_responsive_img_sizes', 10, 3 );
 
 
 
@@ -133,7 +161,7 @@ function ylai_archive_entry_footer() {
 
     if ( $post_format ) {
       $url = trailingslashit( sprintf( '%s/type/%s', get_site_url(), $post_format ) );
-      
+
       printf( '<div class="format-links"><a href="%s">%s</a></div>', $url, ucfirst( $post_format ) );
     }
   }
