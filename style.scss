@@ -361,6 +361,13 @@ input[type="submit"],
   font-size: em(20, 24);
 }
 
+.cat-links,
+.format-links,
+.tag-links {
+  display: block;
+  line-height: 2em;
+}
+
 
 
 
@@ -404,16 +411,35 @@ input[type="submit"],
   #ARCHIVE
 \*------------------------------------*/
 
-.archive .wp-post-image,
-.search .wp-post-image {
-  margin: 1em 0 1em;
-}
-
 .archive .hentry,
+.blog .hentry,
 .search .hentry {
   border-bottom: $border;
   margin-top: 1.5em;
+  overflow: hidden;
   padding-bottom: 1.5em;
+  width: 100%;
+}
+
+.archive .wp-post-image,
+.blog .wp-post-image,
+.search .wp-post-image {
+  @include bp($tablet) {
+    float: left;
+    margin-right: em(16);
+  }
+}
+
+.archive .entry,
+.blog .entry,
+.search .entry {
+  overflow: hidden;
+}
+
+.archive .entry-content,
+.blog .entry-content,
+.search .entry-content {
+  margin: 0;
 }
 
 
