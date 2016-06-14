@@ -162,7 +162,11 @@ function ylai_archive_entry_footer() {
     if ( $post_format ) {
       $url = trailingslashit( sprintf( '%s/type/%s', get_site_url(), $post_format ) );
 
-      printf( '<div class="format-links"><a href="%s">%s</a></div>', $url, ucfirst( $post_format ) );
+      if ( $post_format === 'link' ) {
+        printf( '<div class="format-links"><a href="%s">%s</a></div>', $url, __( 'External Resources', 'ylai' ) );
+      } else {
+        printf( '<div class="format-links"><a href="%s">%s</a></div>', $url, ucfirst( $post_format ) );
+      }
     }
   }
 }
@@ -187,3 +191,30 @@ function ylai_post_entry_footer() {
 }
 
 add_action( 'corona_entry_footer', 'ylai_post_entry_footer' );
+
+
+
+
+/**
+  * Remove 'Category: ', 'Tag: ', etc. from the title of pages that use `archive.php`
+  */
+
+function ylai_remove_archive_type( $title ) {
+  if ( is_category() ) {
+    $title = single_cat_title( '', false );
+  } else if ( is_tag() ) {
+    $title = single_tag_title( '', false );
+  } else if ( is_author() ) {
+    $title = get_the_author();
+  } else if ( is_tax( 'post_format' ) ) {
+    if ( is_tax( 'post_format', 'post-format-link' ) ) {
+      $title = _x( 'External Resources' );
+    }
+  } else if ( is_post_type_archive() ) {
+    $title = post_type_archive_title( '', false );
+  }
+
+  return $title;
+}
+
+add_filter( 'get_the_archive_title', 'ylai_remove_archive_type' );
