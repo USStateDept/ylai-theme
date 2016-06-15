@@ -1,6 +1,10 @@
 <?php
 /**
   * Add the CHILD_THEME_VERSION as a constant
+  *
+  * @param $constants Array - An array of constants from Corona
+  *
+  * @since 2.0.0
   */
 
 function ylai_add_constants( $constants ) {
@@ -20,6 +24,8 @@ add_filter( 'corona_add_constants', 'ylai_add_constants' );
 
 /**
   * Child theme custom image sizes
+  *
+  * @since 2.0.0
   */
 
 function ylai_custom_image_sizes() {
@@ -61,7 +67,9 @@ add_filter( 'wp_get_attachment_image_attributes', 'ylai_responsive_img_sizes', 1
 
 
 /**
-  * Add theme support for the `link` post format
+  * Add theme support for the following post formats
+  *
+  * @since 2.1.0
   */
 
 function ylai_link_post_format() {
@@ -80,7 +88,103 @@ add_action( 'after_setup_theme', 'ylai_link_post_format' );
 
 
 /**
+  * Custom post_format custom slugs. Primarily used by `link`
+  *
+  * @since 3.0.0
+  */
+
+function ylai_post_format_slugs() {
+  $slugs = array(
+    'image' => 'image',
+    'link' =>  'external-resources',
+    'video' => 'video',
+  );
+
+  return $slugs;
+}
+
+
+
+
+/**
+  * A rewrite of `_post_format_link` that rewrites the post_format slug using `ylai_post_format_slugs`
+  *
+  * @param $termlink String - The term url
+  * @param $term Object - The term object
+  * @param $taxonomy string - The taxonomy slug
+  *
+  * @see https://developer.wordpress.org/reference/functions/_post_format_link/
+  * @see http://justintadlock.com/archives/2012/09/11/custom-post-format-urls
+  */
+
+function ylai_post_format_link( $termlink, $term, $taxonomy ) {
+  global $wp_rewrite;
+
+  if ( 'post_format' !== $taxonomy ) {
+    return $termlink;
+  }
+
+  $slugs = ylai_post_format_slugs();
+
+  // Get the last part of the slug, e.g. `link` or `video`
+  $slug = str_replace( 'post-format-', '', $term->slug );
+
+  if ( $wp_rewrite->get_extra_permastruct( $taxonomy ) ) {
+    $termlink = str_replace( "/{$term->slug}", '/' . $slugs[$slug], $termlink );
+  } else {
+    $termlink = add_query_arg( 'post_format', str_replace( 'post_format', '', $slugs[$slug] ), remove_query_arg( 'post_format', $termlink ) );
+  }
+
+  return $termlink;
+}
+
+remove_filter( 'term_link', '_post_format_link', 10 );
+add_filter( 'term_link', 'ylai_post_format_link', 10, 3 );
+
+
+
+
+/**
+  * Matches the queried post_format slug, e.g. `external-resources` that that which is in the DB,
+  * i.e. `link` in the `external-resources` example.
+  *
+  * @param $qvs Array
+  *
+  * @see https://developer.wordpress.org/reference/functions/_post_format_request/
+  * @see http://justintadlock.com/archives/2012/09/11/custom-post-format-urls
+  */
+
+function ylai_post_format_request( $qvs ) {
+  if ( ! isset( $qvs['post_format'] ) ) {
+    return $qvs;
+  }
+
+  // We have to flip the array, so that `external-resources` becomes the key instead of `link`
+  $slugs = array_flip( ylai_post_format_slugs() );
+
+  if ( isset( $slugs[ $qvs['post_format'] ] ) ) {
+    $qvs['post_format'] = 'post-format-' . $slugs[ $qvs['post_format'] ];
+  }
+
+  $tax = get_taxonomy( 'post_format' );
+
+  if ( ! is_admin() ) {
+    $qvs['post_type'] = $tax->object_type;
+  }
+
+  return $qvs;
+}
+
+remove_filter( 'request', '_post_format_request' );
+add_filter( 'request', 'ylai_post_format_request' );
+
+
+
+
+/**
   * Script and style enqueue
+  *
+  * @since 1.0.0
   */
 
 function ylai_enqueue_scripts() {
@@ -100,6 +204,8 @@ add_action( 'wp_enqueue_scripts', 'ylai_enqueue_scripts' );
 
 /**
   * Add Google Tag Manager
+  *
+  * @since 1.0.0
   */
 
 function ylai_google_tag_manager() {
@@ -122,6 +228,8 @@ add_action( 'tha_body_top', 'ylai_google_tag_manager' );
 
 /**
   * Remove publication date and author from posts
+  *
+  * @since 1.1.0
   */
 
 function unhook_corona_posted_on() {
@@ -135,6 +243,8 @@ add_action( 'init', 'unhook_corona_posted_on' );
 
 /**
   * Unhook Corona's default entry footer output
+  *
+  * @since 3.0.0
   */
 
 function unhook_corona_entry_footer() {
@@ -148,6 +258,8 @@ add_action( 'init', 'unhook_corona_entry_footer' );
 
 /**
   * Customize the output of `corona_entry_footer` for archive pages
+  *
+  * @since 3.0.0
   */
 
 function ylai_archive_entry_footer() {
@@ -160,7 +272,9 @@ function ylai_archive_entry_footer() {
 		}
 
     if ( $post_format ) {
-      $url = trailingslashit( sprintf( '%s/type/%s', get_site_url(), $post_format ) );
+      $slugs = ylai_post_format_slugs();
+
+      $url = trailingslashit( sprintf( '%s/type/%s', get_site_url(), $slugs[$post_format]) );
 
       if ( $post_format === 'link' ) {
         printf( '<div class="format-links"><a href="%s">%s</a></div>', $url, __( 'External Resources', 'ylai' ) );
@@ -178,6 +292,8 @@ add_action( 'corona_entry_footer', 'ylai_archive_entry_footer' );
 
 /**
   * Customize the output of `corona_entry_footer` for posts
+  *
+  * @since 3.0.0
   */
 
 function ylai_post_entry_footer() {
@@ -197,6 +313,8 @@ add_action( 'corona_entry_footer', 'ylai_post_entry_footer' );
 
 /**
   * Remove 'Category: ', 'Tag: ', etc. from the title of pages that use `archive.php`
+  *
+  * @since 3.0.0
   */
 
 function ylai_remove_archive_type( $title ) {
@@ -208,7 +326,7 @@ function ylai_remove_archive_type( $title ) {
     $title = get_the_author();
   } else if ( is_tax( 'post_format' ) ) {
     if ( is_tax( 'post_format', 'post-format-link' ) ) {
-      $title = _x( 'External Resources' );
+      $title = _x( 'External Resources', 'ylai' );
     }
   } else if ( is_post_type_archive() ) {
     $title = post_type_archive_title( '', false );
