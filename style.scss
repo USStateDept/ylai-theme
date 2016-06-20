@@ -473,3 +473,15 @@ input[type="submit"],
 .mc4wp-form-fields label {
   @extend %visuallyhidden;
 }
+
+
+
+
+/*------------------------------------*\
+  #RELATED-CONTENT
+\*------------------------------------*/
+
+.related-post a {
+  border: 0;
+  color: $font-color;
+}
