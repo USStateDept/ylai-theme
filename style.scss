@@ -187,6 +187,41 @@ input[type="submit"],
   display: none;
 }
 
+.sidebar .widget.widget_categories,
+.sidebar .widget.promoted_links {
+  border: $border;
+  margin-bottom: 2em;
+}
+
+.sidebar .widget_categories > ul,
+.sidebar .promoted_links > ul {
+  padding: 0 0.5em;
+}
+
+.sidebar .widget_categories a,
+.sidebar .promoted_links a {
+  color: $font-color;
+}
+
+.sidebar .widget_categories a:hover,
+.sidebar .promoted_links a:hover {
+  color: $link-hover;
+}
+
+.sidebar .widget .children {
+  margin-left: 1em;
+}
+
+.sidebar .widget_categories .widget-title,
+.sidebar .promoted_links .widget-title {
+  background-color: $button-bg;
+  color: white;
+  display: inline-block;
+  font-size: em(18);
+  padding: 0.5em;
+  width: 100%;
+}
+
 
 
 
