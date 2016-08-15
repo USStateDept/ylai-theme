@@ -406,7 +406,10 @@ input[type="submit"],
   margin-bottom: 0.25em;
 }
 
-
+figcaption {
+  font-size: em(12, 16);
+  font-style: italic;
+}
 
 
 /*------------------------------------*\
