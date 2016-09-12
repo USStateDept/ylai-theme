@@ -103,7 +103,6 @@ a:hover {
 .menu-primary {
   border-bottom: em(3) solid $accent;
   box-shadow: 0 em(10) em(15) em(-10) $font-color;
-  overflow: hidden;
 
   @include bp($tablet) {
 		width: 90%;
@@ -116,6 +115,7 @@ a:hover {
 }
 
 .menu-primary a {
+  background-color: white;
   font-weight: bold;
   padding: em(12) em(15);
 }
@@ -418,6 +418,14 @@ figcaption {
 
 .home .content {
   width: 100%;
+}
+
+.cta-text p {
+  margin: 0.65em 0;
+
+  @include bp($big-mobile) {
+    margin: 1em 0;
+  }
 }
 
 .button.cta-button {
