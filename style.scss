@@ -420,6 +420,14 @@ figcaption {
   width: 100%;
 }
 
+.cta-text p {
+  margin: 0.65em 0;
+
+  @include bp($big-mobile) {
+    margin: 1em 0;
+  }
+}
+
 .button.cta-button {
   background-color: $button-bg-alt;
 }
