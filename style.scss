@@ -432,25 +432,10 @@ figcaption {
   background-color: $button-bg-alt;
 }
 
-.post-list-container {
-  margin-top: em(35);
-}
-
 .post-list-container .entry {
-  float: left;
-
   @include bp($tablet) {
-    padding: 0 1em;
-    width: 33%;
+    width: 50%;
   }
-}
-
-.post-list-container .post-image-anchor {
-  border: 0;
-}
-
-.post-list-container .entry-content {
-  font-size: 1em;
 }
 
 
