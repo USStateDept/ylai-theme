@@ -15,7 +15,7 @@
     "watch:sass": "onchange ./styles/**/*.scss ./styles/*.scss ./style.scss -- npm run sass",
     "watch:js": "onchange ./js/src/*.js -v -- npm run uglify",
     "watch:image": "onchange ./images/src/* -- npm run imagemin",
-    "prod": "parallelshell 'npm run css' 'npm run uglify' 'npm run imagemin'",
+    "prod": "parallelshell 'npm run css' 'npm run imagemin'",
     "version": "versionbump 'version.json' 'package.json' && npm run prod && git add --all"
   },
   "author": "Office of Design, U.S. Department of State",
