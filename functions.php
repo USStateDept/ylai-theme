@@ -189,7 +189,7 @@ add_filter( 'request', 'ylai_post_format_request' );
 
 function ylai_enqueue_scripts() {
     wp_enqueue_script( 'corona-js', get_template_directory_uri() . '/js/dist/script.js', array(), CORONA_THEME_VERSION, true );
-    // wp_enqueue_script( 'ylai-js', get_stylesheet_directory_uri() . '/js/dist/script.js', array(), CHILD_THEME_VERSION, true );
+    wp_enqueue_script( 'ylai-js', get_stylesheet_directory_uri() . '/js/dist/script.js', array(), CHILD_THEME_VERSION, true );
     wp_enqueue_script( 'addthis', 'https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571e80b3848f4add', array(), null, true );
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css', array(), CORONA_THEME_VERSION, 'all' );
     wp_enqueue_style( 'parent-rtl-style', get_template_directory_uri() . '/rtl.css', array(), CORONA_THEME_VERSION, 'all' );
@@ -216,6 +216,33 @@ function ylai_google_tag_manager() {
 
 add_action( 'tha_body_top', 'ylai_google_tag_manager' );
 
+
+
+
+/**
+  * Add Twitter widget js to template
+  */
+
+function ylai_add_twitter_widget() {
+  echo '<script>window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
+
+    return t;
+  } (document, "script", "twitter-wjs"));</script>';
+}
+
+add_action( 'wp_head', 'ylai_add_twitter_widget' );
 
 
 
