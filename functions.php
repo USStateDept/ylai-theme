@@ -358,3 +358,22 @@ function ylai_remove_archive_type( $title ) {
 }
 
 add_filter( 'get_the_archive_title', 'ylai_remove_archive_type' );
+
+
+/**
+  * Screendoor form shortcode
+  */
+
+function ylai_screendoor_form( $args ) {
+  $a = shortcode_atts( array(
+    'id' => '',
+    'button_class' => 'button'
+  ), $args );
+
+  $html = '<form data-formrenderer>This form requires JavaScript to complete.</form>';
+  $html .= '<script>FormRenderer.BUTTON_CLASS = "' . $a['button_class'] . '";new FormRenderer({"project_id":"' . $a['id'] . '"});</script>';
+
+  return $html;
+}
+
+add_shortcode( 'screendoor', 'ylai_screendoor_form' );
