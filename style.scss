@@ -567,3 +567,29 @@ figcaption {
   border: 0;
   color: $font-color;
 }
+
+/*------------------------------------*\
+  #COURSE-MODULE
+\*------------------------------------*/
+
+#course-container ul {
+  text-indent: 0;
+}
+
+.lessons-list__ordered:before {
+  left: 2em;
+}
+
+.lessons-list-item:before {
+  left: -2.3em;
+  top: 35%;
+}
+
+.instructors-list .media-object img {
+  width: 100%!important;
+}
+
+.lessons-list-item>a {
+  background: $button-bg;
+  color: $button-font-color;
+}
