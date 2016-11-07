@@ -632,6 +632,7 @@ figcaption {
 .react-course .react-tabs [role=tab][aria-selected=true] {
   background: $lesson-drk;
   color: #fff;
+  border-radius: inherit;
 }
 
 .react-course .react-tabs [role=tab] {
