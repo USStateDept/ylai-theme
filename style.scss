@@ -600,6 +600,10 @@ figcaption {
   color: $button-font-color;
 }
 
+.react-course .lesson-buttonnav > a:hover {
+  background: $button-bg;
+}
+
 .react-course .lesson .lesson-pagination li {
   background: $lesson-pg-drk;
 }
