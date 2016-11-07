@@ -605,21 +605,42 @@ figcaption {
 }
 
 .react-course .lesson .lesson-pagination li {
-  background: $lesson-pg-drk;
+  background: $lesson-drk;
 }
 
 .react-course .lesson .lesson-pagination li::before{
-  background: $lesson-pg-drk;
+  background: $lesson-drk;
 }
 
 .react-course .lesson .lesson-pagination .active {
-  background: $lesson-pg-drk;
+  background: $lesson-drk;
 }
 
 .react-course .lesson .lesson-pagination .active ~ li {
-  background: $lesson-pg-lgt;
+  background: $lesson-lgt;
 }
 
 .react-course .lesson .lesson-pagination .active ~ li::before {
-  background: $lesson-pg-lgt;
+  background: $lesson-lgt;
+}
+
+.react-course .react-tabs [role=tablist] {
+  border-bottom: none;
+  margin: 0 0 1px;
+}
+
+.react-course .react-tabs [role=tab][aria-selected=true] {
+  background: $lesson-drk;
+  color: #fff;
+}
+
+.react-course .react-tabs [role=tab] {
+  border-right: 1px solid white;
+  background: $lesson-lgt;
+  color: white;
+}
+
+.react-course .ReactTabs__TabPanel {
+  padding: 40px 20px;
+  border: 1px solid $lesson-lgt;
 }
