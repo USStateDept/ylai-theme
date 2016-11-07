@@ -589,8 +589,33 @@ figcaption {
   width: 100%;
 }
 
-.react-course .lessons-list-item>a {
+.react-course .lessons-list-item > a {
   background: $button-bg;
   color: $button-font-color;
   top: 40%;
+}
+
+.react-course .lesson .lesson-buttonnav > a {
+  background: $button-bg;
+  color: $button-font-color;
+}
+
+.react-course .lesson .lesson-pagination li {
+  background: $lesson-pg-drk;
+}
+
+.react-course .lesson .lesson-pagination li::before{
+  background: $lesson-pg-drk;
+}
+
+.react-course .lesson .lesson-pagination .active {
+  background: $lesson-pg-drk;
+}
+
+.react-course .lesson .lesson-pagination .active ~ li {
+  background: $lesson-pg-lgt;
+}
+
+.react-course .lesson .lesson-pagination .active ~ li::before {
+  background: $lesson-pg-lgt;
 }
