@@ -577,12 +577,12 @@ figcaption {
 }
 
 .lessons-list__ordered:before {
-  left: 2em;
+  left: 2em!important;
 }
 
 .lessons-list-item:before {
-  left: -2.3em;
-  top: 35%;
+  left: -2.3em!important;
+  top: 35%!important;
 }
 
 .instructors-list .media-object img {
@@ -590,6 +590,6 @@ figcaption {
 }
 
 .lessons-list-item>a {
-  background: $button-bg;
-  color: $button-font-color;
+  background: $button-bg !important;
+  color: $button-font-color !important;
 }
