@@ -624,6 +624,10 @@ figcaption {
   background: $lesson-lgt;
 }
 
+.react-course .lesson .lesson-pagination li a:visited {
+  border-bottom: none;
+}
+
 .react-course .react-tabs [role=tablist] {
   border-bottom: none;
   margin: 0 0 1px;
