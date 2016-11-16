@@ -576,77 +576,99 @@ figcaption {
   text-indent: 0;
 }
 
-.react-course .lessons-list__ordered:before {
-  left: 2em;
+.react-course {
+  .entry-content {
+    margin: 0;
+  }
+
+  .lessons-list__ordered:before {
+    left: 2em;
+  }
+
+  .lessons-list-item:before {
+    left: -2.3em;
+    top: 35%;
+  }
+
+  .instructors-list .media-object img {
+    width: 100%;
+  }
+
+  .lessons-list-item > a {
+    background: $button-bg;
+    color: $button-font-color;
+    top: 40%;
+  }
+
+  .lesson .lesson-buttonnav > a {
+    background: $button-bg;
+    color: $button-font-color;
+  }
+
+  .lesson .lesson-buttonnav > a:hover {
+    background: $button-bg;
+  }
+
+  .lesson .lesson-pagination li {
+    background: $lesson-drk;
+  }
+
+  .lesson .lesson-pagination li::before {
+    background: $lesson-drk;
+  }
+
+  .lesson .lesson-pagination .active {
+    background: $lesson-drk;
+  }
+
+  .lesson .lesson-pagination .active ~ li {
+    background: $lesson-lgt;
+  }
+
+  .lesson .lesson-pagination .active ~ li::before {
+    background: $lesson-lgt;
+  }
+
+  .lesson .lesson-pagination li a {
+    border: none;
+    outline: none;
+  }
+
+  .react-tabs [role=tablist] {
+    border-bottom: none;
+    margin: 0 0 1px;
+  }
+
+  .react-tabs [role=tab][aria-selected=true] {
+    background: $lesson-drk;
+    color: #fff;
+    border-radius: inherit;
+  }
+
+  .react-tabs [role=tab] {
+    border-right: 1px solid white;
+    background: $lesson-lgt;
+    color: white;
+  }
+
+  .ReactTabs__TabPanel {
+    border: 1px solid $lesson-lgt;
+    padding: 0 1em;
+  }
+
+  .ReactTabs__TabPanel ul {
+    list-style-type: disc;
+    margin: 1em;
+  }
+
+  .two-thirds {
+    @include bp($tablet) {
+      width: 100%;
+    }
+
+    @include bp($laptop) {
+      width: 67%;
+    }
+  }
 }
 
-.react-course .lessons-list-item:before {
-  left: -2.3em;
-  top: 35%;
-}
-
-.react-course .instructors-list .media-object img {
-  width: 100%;
-}
-
-.react-course .lessons-list-item > a {
-  background: $button-bg;
-  color: $button-font-color;
-  top: 40%;
-}
-
-.react-course .lesson .lesson-buttonnav > a {
-  background: $button-bg;
-  color: $button-font-color;
-}
-
-.react-course .lesson .lesson-buttonnav > a:hover {
-  background: $button-bg;
-}
-
-.react-course .lesson .lesson-pagination li {
-  background: $lesson-drk;
-}
-
-.react-course .lesson .lesson-pagination li::before{
-  background: $lesson-drk;
-}
-
-.react-course .lesson .lesson-pagination .active {
-  background: $lesson-drk;
-}
-
-.react-course .lesson .lesson-pagination .active ~ li {
-  background: $lesson-lgt;
-}
-
-.react-course .lesson .lesson-pagination .active ~ li::before {
-  background: $lesson-lgt;
-}
-
-.react-course .lesson .lesson-pagination li a {
-  border: none;
-  outline: none;
-}
-
-.react-course .react-tabs [role=tablist] {
-  border-bottom: none;
-  margin: 0 0 1px;
-}
-
-.react-course .react-tabs [role=tab][aria-selected=true] {
-  background: $lesson-drk;
-  color: #fff;
-  border-radius: inherit;
-}
-
-.react-course .react-tabs [role=tab] {
-  border-right: 1px solid white;
-  background: $lesson-lgt;
-  color: white;
-}
-
-.react-course .ReactTabs__TabPanel {
-  padding: 40px 20px;
-  border: 1px solid $lesson-lgt;
-}
