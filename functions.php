@@ -377,3 +377,22 @@ function ylai_screendoor_form( $args ) {
 }
 
 add_shortcode( 'screendoor', 'ylai_screendoor_form' );
+
+
+/**
+  * Send token data for Course
+  */
+
+function create_nonce() {
+  $requiredplugin = 'wp-simple-nonce/wp-simple-nonce.php';
+  if ( is_plugin_active($requiredplugin) ) {
+    global $post;
+
+    if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'course' ) ) {
+      $myNonce = WPSimpleNonce::createNonce('certificate', 2592000);
+      wp_localize_script( 'ylai-js', 'token', $myNonce );
+    }
+  }
+}
+
+add_action('wp_enqueue_scripts', 'create_nonce');
