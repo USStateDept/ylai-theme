@@ -7,6 +7,8 @@
   * @since 2.0.0
   */
 
+
+
 function ylai_add_constants( $constants ) {
   $ylai_constants = array(
     'CHILD_THEME_VERSION' => corona_get_theme_version( get_stylesheet_directory() . '/version.json' ),
@@ -383,16 +385,34 @@ add_shortcode( 'screendoor', 'ylai_screendoor_form' );
   * Send token data for Course
   */
 
-function create_nonce() {
+function localize_nonce() {
   $requiredplugin = 'wp-simple-nonce/wp-simple-nonce.php';
+
   if ( is_plugin_active($requiredplugin) ) {
     global $post;
+    $duration = 2592000;
+    $nonce = array();
 
     if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'course' ) ) {
-      $myNonce = WPSimpleNonce::createNonce('certificate', 2592000);
-      wp_localize_script( 'ylai-js', 'token', $myNonce );
+        $cookie = isset($_COOKIE['wp-simple-nonce']) ? $_COOKIE['wp-simple-nonce'] : null;
+
+      // Check if there's a cookie already set
+      if ( $cookie ) {
+        $nonce['name'] = $cookie;
+        $nonce['value'] = WPSimpleNonce::fetchNonce( $cookie );
+
+        // If there's a cookie, but the value's already been deleted from the db, get a new nonce
+        if ( $nonce['value'] === null ) {
+          $nonce = WPSimpleNonce::createNonce('certificate', $duration );
+        }
+      } else {
+        // If there's no cookie, create a new nonce
+        $nonce = WPSimpleNonce::createNonce('certificate', $duration );
+      }
+
+      wp_localize_script( 'ylai-js', 'token', $nonce );
     }
   }
 }
 
-add_action('wp_enqueue_scripts', 'create_nonce');
+add_action('wp_enqueue_scripts', 'localize_nonce');
