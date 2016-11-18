@@ -425,7 +425,7 @@ add_action('wp_enqueue_scripts', 'localize_nonce');
  */
 
 function ylai_add_attachment( $attachments, $form, $args ) {
-	if ( $form->form_key == 'get_certificate2' ) {
+	if ( $form->form_key == 'get_certificate' ) {
 
 		$params = array (
 			'key'				=>  $form->form_key,				// form identifier (i.e. project id used to find config)
@@ -467,11 +467,11 @@ function check_nonce( $errors, $values ) {
     if( $values['form_key'] == 'get_certificate' ) {
 
       $result = WPSimpleNonce::checkNonce($_GET['tokenName'], $_GET['tokenValue']);
-      
+
       if ( ! $result ) {
          $errors['my_error'] = 'This certificate page has expired. Please return to the quiz and complete it again to generate your certificate.';
       }
-      
+
     }
 
   }
