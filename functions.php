@@ -438,6 +438,9 @@ function ylai_add_attachment( $attachments, $form, $args ) {
   return $attachments;
 }
 
+
+
+
 // Formidable email hooks that enables adding attachments
 add_filter( 'frm_notification_attachment', 'ylai_add_attachment', 10, 3 );
 
@@ -446,4 +449,27 @@ add_filter( 'frm_notification_attachment', 'ylai_add_attachment', 10, 3 );
   add_filter( 'frm_time_to_check_duplicates', '__return_false' );
  */
 
-add_filter( 'frm_time_to_check_duplicates', '__return_false' );
+
+
+
+/**
+  * Validate token data for Course
+  *
+  * @since 2.7.0
+  */
+
+add_filter('frm_validate_entry', 'check_nonce', 20, 2);
+function check_nonce( $errors, $values ) {
+  
+  if( $values['form_key'] == 'get_certificate' ) {
+
+    $result = WPSimpleNonce::checkNonce($_GET['tokenName'], $_GET['tokenValue']);
+    
+    if ( ! $result ) {
+       $errors['my_error'] = 'This certificate page has expired. Please return to the quiz and complete it again to generate your certificate.';
+    }
+    
+  }
+
+  return $errors;
+}
