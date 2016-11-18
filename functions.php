@@ -13,6 +13,8 @@ include( get_stylesheet_directory() . '/badge/class-america-badge-generation.php
   * @since 2.0.0
   */
 
+
+
 function ylai_add_constants( $constants ) {
   $ylai_constants = array(
     'CHILD_THEME_VERSION' => corona_get_theme_version( get_stylesheet_directory() . '/version.json' ),
@@ -366,8 +368,12 @@ function ylai_remove_archive_type( $title ) {
 add_filter( 'get_the_archive_title', 'ylai_remove_archive_type' );
 
 
+
+
 /**
   * Screendoor form shortcode
+  *
+  * @since 2.3.3
   */
 
 function ylai_screendoor_form( $args ) {
@@ -385,29 +391,39 @@ function ylai_screendoor_form( $args ) {
 add_shortcode( 'screendoor', 'ylai_screendoor_form' );
 
 
+
+
 /**
   * Send token data for Course
+  *
+  * @since 2.5.0
   */
 
-function create_nonce() {
+function localize_nonce() {
   $requiredplugin = 'wp-simple-nonce/wp-simple-nonce.php';
+
   if ( is_plugin_active($requiredplugin) ) {
     global $post;
 
     if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'course' ) ) {
-      $myNonce = WPSimpleNonce::createNonce('certificate', 2592000);
-      wp_localize_script( 'ylai-js', 'token', $myNonce );
+      $nonce = WPSimpleNonce::init( 'certificate', 2592000, true );
+      wp_localize_script( 'ylai-js', 'token', $nonce );
     }
   }
 }
 
-add_action('wp_enqueue_scripts', 'create_nonce');
+add_action('wp_enqueue_scripts', 'localize_nonce');
+
+
+
 
 /**
  * Add attachment using the Formidable 'frm_notification_attachment' hook
  *
- * @since 2.5.0
+ * @since 2.6.0
+ *
  */
+
 function ylai_add_attachment( $attachments, $form, $args ) {
 	if ( $form->form_key == 'get_certificate2' ) {
 
