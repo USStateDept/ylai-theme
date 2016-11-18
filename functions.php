@@ -390,26 +390,9 @@ function localize_nonce() {
 
   if ( is_plugin_active($requiredplugin) ) {
     global $post;
-    $duration = 2592000;
-    $nonce = array();
 
     if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'course' ) ) {
-        $cookie = isset($_COOKIE['wp-simple-nonce']) ? $_COOKIE['wp-simple-nonce'] : null;
-
-      // Check if there's a cookie already set
-      if ( $cookie ) {
-        $nonce['name'] = $cookie;
-        $nonce['value'] = WPSimpleNonce::fetchNonce( $cookie );
-
-        // If there's a cookie, but the value's already been deleted from the db, get a new nonce
-        if ( $nonce['value'] === null ) {
-          $nonce = WPSimpleNonce::createNonce('certificate', $duration );
-        }
-      } else {
-        // If there's no cookie, create a new nonce
-        $nonce = WPSimpleNonce::createNonce('certificate', $duration );
-      }
-
+      $nonce = WPSimpleNonce::init( 'certificate', 2592000, true );
       wp_localize_script( 'ylai-js', 'token', $nonce );
     }
   }
