@@ -1,0 +1,17 @@
+{
+    "name": "usstatedept/america-screendoor",
+    "type": "wordpress-plugin",
+    "description" : "Script that generates a badge image and attaches to email",
+    "authors": [
+        {
+            "name": "Office of Design, U.S. Department of State",
+            "email": "reganta@america.gov"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+       "composer/installers": "~1.0",
+       "intervention/image": "^2.3",
+       "intervention/imagecache": "^2.3"
+    }
+}

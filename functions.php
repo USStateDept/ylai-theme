@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * Require badge generation class
+ */
+include( get_stylesheet_directory() . '/badge/class-america-badge-generation.php');
+
 /**
   * Add the CHILD_THEME_VERSION as a constant
   *
@@ -396,3 +402,32 @@ function create_nonce() {
 }
 
 add_action('wp_enqueue_scripts', 'create_nonce');
+
+/**
+ * Add attachment using the Formidable 'frm_notification_attachment' hook
+ *
+ * @since 2.5.0
+ */
+function ylai_add_attachment( $attachments, $form, $args ) {
+	if ( $form->form_key == 'get_certificate2' ) {
+
+		$params = array (
+			'key'				=>  $form->form_key,				// form identifier (i.e. project id used to find config)
+			'metas'			=>  $args['entry']->metas		// formidable metas passed in via $args that hold field values
+		);
+
+		$generator = new America_Badge_Generation ();
+    $attachments[] =  $generator->create_image( $params );
+ }
+  return $attachments;
+}
+
+// Formidable email hooks that enables adding attachments
+add_filter( 'frm_notification_attachment', 'ylai_add_attachment', 10, 3 );
+
+/*
+  Allow multiple consecutive submissions during image testing
+  add_filter( 'frm_time_to_check_duplicates', '__return_false' );
+ */
+
+add_filter( 'frm_time_to_check_duplicates', '__return_false' );
