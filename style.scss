@@ -614,7 +614,7 @@ figcaption {
     font-family: monospace;
   }
 
-  .lesson .lesson-pagination a::before {
+  .lesson .lesson-pagination li::before {
     background-color: $lesson-drk;
   }
 
