@@ -609,28 +609,21 @@ figcaption {
     color: $button-font-color;
   }
 
-  .lesson .lesson-buttonnav > a:hover {
-    background: $button-bg;
-  }
-
-  .lesson .lesson-pagination li {
-    background: $lesson-drk;
+  .lesson .lesson-pagination a {
+    background-color: $lesson-drk;
+    font-family: monospace;
   }
 
   .lesson .lesson-pagination li::before {
-    background: $lesson-drk;
+    background-color: $lesson-drk;
   }
 
-  .lesson .lesson-pagination .active {
-    background: $lesson-drk;
-  }
-
-  .lesson .lesson-pagination .active ~ li {
-    background: $lesson-lgt;
+  .lesson .lesson-pagination .active ~ li a {
+    background-color: $lesson-lgt;
   }
 
   .lesson .lesson-pagination .active ~ li::before {
-    background: $lesson-lgt;
+    background-color: $lesson-lgt;
   }
 
   .lesson .lesson-pagination li a {
