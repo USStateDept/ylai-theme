@@ -609,6 +609,10 @@ figcaption {
     color: $button-font-color;
   }
 
+  .lesson .lesson-buttonnav > a:hover {
+    background: $button-bg;
+  }
+
   .lesson .lesson-pagination a {
     background-color: $lesson-drk;
     font-family: monospace;
