@@ -589,6 +589,10 @@ figcaption {
   @extend %visuallyhidden;
 }
 
+.sidebar .frm_forms .frm_hidden {
+  @extend %visuallyhidden;
+}
+
 
 /*------------------------------------*\
   #RELATED-CONTENT
