@@ -400,6 +400,8 @@ add_shortcode( 'screendoor', 'ylai_screendoor_form' );
   */
 
 function localize_nonce() {
+
+  include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
   $requiredplugin = 'wp-simple-nonce/wp-simple-nonce.php';
 
   if ( is_plugin_active($requiredplugin) ) {
@@ -460,6 +462,8 @@ add_filter( 'frm_notification_attachment', 'ylai_add_attachment', 10, 3 );
 
 add_filter('frm_validate_entry', 'check_nonce', 20, 2);
 function check_nonce( $errors, $values ) {
+
+  include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
   $requiredplugin = 'wp-simple-nonce/wp-simple-nonce.php';
 
   if ( is_plugin_active($requiredplugin) ) {
