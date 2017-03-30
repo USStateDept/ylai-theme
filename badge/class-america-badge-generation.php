@@ -1,8 +1,6 @@
 <?php
 
 // Image generation library - depends on GD and FreeType library being installed
-// Leaving autoload and composer files in the event this package is moved
-require dirname(__FILE__) . '/vendor/autoload.php';
 use Intervention\Image\ImageManagerStatic as Image;
 Image::configure(array('driver' => 'gd'));
 
