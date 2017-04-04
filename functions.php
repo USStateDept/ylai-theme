@@ -420,6 +420,10 @@ function ylai_add_attachment( $attachments, $form, $args ) {
 // Formidable email hooks that enables adding attachments
 add_filter( 'frm_notification_attachment', 'ylai_add_attachment', 10, 3 );
 
+// Keep email subject from being encode twice
+add_filter('frm_encode_subject', '__return_false');
+
+
 /*
   Allow multiple consecutive submissions during image testing
   add_filter( 'frm_time_to_check_duplicates', '__return_false' );
