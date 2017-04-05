@@ -556,7 +556,42 @@ figcaption {
   margin-top: em(5);
 }
 
+// Styles for formidable
+.sidebar .frm_forms fieldset {
+  background: $accent;
+  padding: em(16);
+}
 
+.sidebar .frm_forms h3,
+.sidebar .frm_forms .frm_description {
+  color: white;
+}
+
+.sidebar .frm_forms h3 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.sidebar .frm_forms select {
+  width: 100%;
+}
+
+.sidebar .frm_forms label {
+  @extend %visuallyhidden;
+}
+
+.sidebar .frm_forms .frm_form_field,
+.sidebar .frm_forms .frm_submit {
+  margin-bottom: 1em;
+}
+
+.sidebar .frm_forms .frm_submit .frm_ajax_loading {
+  @extend %visuallyhidden;
+}
+
+.frm_forms .frm_hidden {
+  @extend %visuallyhidden;
+}
 
 
 /*------------------------------------*\
