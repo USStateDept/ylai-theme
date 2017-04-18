@@ -559,12 +559,13 @@ figcaption {
 // Styles for formidable
 .sidebar .frm_forms fieldset {
   background: $accent;
-  padding: em(16);
+  padding: $form-input-padding;
+  border: $border-color;
 }
 
 .sidebar .frm_forms h3,
 .sidebar .frm_forms .frm_description {
-  color: white;
+  color: $form-text;
 }
 
 .sidebar .frm_forms h3 {
@@ -593,6 +594,29 @@ figcaption {
   @extend %visuallyhidden;
 }
 
+.sidebar .frm_forms .frm_message {
+  background: $accent;
+  padding: 1em;
+  color: $form-text;
+  text-align: center;
+}
+
+.sidebar .frm_forms input[type=submit][disabled] {
+  background: $disabled-bg-drk;
+}
+
+.sidebar .frm_forms .frm_error_style {
+  background: $form-error;
+  color: $form-text;
+  padding: $form-input-padding;
+  border: 2px solid #fff;
+  margin-bottom: 10px;
+}
+
+.sidebar .frm_forms .frm_error {
+  color: $form-error;
+  font-size: 0.8em;
+}
 
 /*------------------------------------*\
   #RELATED-CONTENT

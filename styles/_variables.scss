@@ -18,6 +18,7 @@ $second-footer-accent: rgb(61, 61, 61);
 
 // Form Variables
 $disabled-bg: rgb(204, 204, 204);
+$disabled-bg-drk: rgb(46, 46, 46);
 $disabled-font-color: rgb(238, 238, 238);
 $disabled-border: darken($disabled-bg, 10%);
 $placeholder-color: rgb(79, 79, 79);
@@ -26,6 +27,8 @@ $button-bg-alt: rgb(186, 30, 44);
 $button-font-color: rgb(255, 255, 255);
 $button-font-color-alt: rgb(255, 255, 255);
 $form-input-padding: 10px;
+$form-error: rgb(186, 30, 44);
+$form-text: rgb(255, 255, 255);
 
 // Course colors
 $lesson-drk: rgb(16, 85, 126);
