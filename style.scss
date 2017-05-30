@@ -39,19 +39,16 @@ p {
 }
 
 a {
-  border-bottom: 1px dotted $link-color;
   color: $link-color;
   text-decoration: none;
 }
 
 a:visited {
-  border-bottom: 1px dotted $link-visited;
   color: $link-visited;
   text-decoration: none;
 }
 
 a:hover {
-  border-bottom: 1px dotted $link-hover;
   color: $link-hover;
   text-decoration: none;
 }
@@ -130,7 +127,9 @@ a:hover {
   color: $link-color;
 }
 
-
+.menu-primary a:hover {
+  color: $link-hover;
+}
 
 
 /*------------------------------------*\
@@ -391,9 +390,9 @@ input[type="submit"],
   margin-top: 0;
 }
 
-.entry-title a  {
+.entry-content .entry-title a  {
   border: 0;
-  color: $font-color;
+  color: $link-color;
   text-decoration: none;
   font-size: em(20, 24);
 }
@@ -731,4 +730,3 @@ figcaption {
     }
   }
 }
-
