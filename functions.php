@@ -256,7 +256,7 @@ add_action( 'wp_head', 'ylai_add_twitter_widget' );
  * Inserts pixel code for ad campaign
  */
 function add_ad_pixel(){
-  // if ( is_page('thank-you')) {
+  if ( is_page('network')) {
     ?>
     <!-- Facebook Pixel Code -->
     <script>
@@ -274,7 +274,7 @@ function add_ad_pixel(){
     <!-- DO NOT MODIFY -->
     <!-- End Facebook Pixel Code -->
     <?php
-  // }
+  }
 }
 add_action('wp_head', 'add_ad_pixel');
 
