@@ -556,6 +556,10 @@ figcaption {
 }
 
 // Styles for formidable
+.blog #form_network {
+  display: none;
+}
+
 .sidebar .frm_forms fieldset {
   background: $accent;
   padding: $form-input-padding;
@@ -570,10 +574,15 @@ figcaption {
 .sidebar .frm_forms h3 {
   text-align: center;
   text-transform: uppercase;
+  font-size: 1.5em;
 }
 
 .sidebar .frm_forms select {
   width: 100%;
+  height: 36px;
+  background: #fff;
+  border: none;
+  font-size: 0.9em;
 }
 
 .sidebar .frm_forms label {
@@ -583,6 +592,10 @@ figcaption {
 .sidebar .frm_forms .frm_form_field,
 .sidebar .frm_forms .frm_submit {
   margin-bottom: 1em;
+}
+
+.sidebar .frm_forms .frm_submit input {
+  line-height: 24px
 }
 
 .sidebar .frm_forms .frm_submit .frm_ajax_loading {
