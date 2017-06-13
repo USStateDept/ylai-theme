@@ -55,7 +55,7 @@ a:hover {
 
 .site-container {
   background: white;
-  border-top: 5px solid $accent;
+  border-top: none;
 
   @include bp($tablet) {
     box-shadow: $box-shadow;
@@ -69,7 +69,14 @@ a:hover {
   background: white;
 
   @include bp($tablet) {
+    padding-top: em(16);
     /* padding: 0 em(32) em(32); */
+  }
+}
+
+.home .content-sidebar-wrap {
+  @include bp($tablet) {
+    padding-top: 0;
   }
 }
 
@@ -111,6 +118,7 @@ a:hover {
 .nav-primary {
   @include bp($laptop) {
     padding: 0 em(16);
+    border-bottom: 1px solid $first-footer-bg;
   }
 }
 .nav-primary ul {
@@ -339,7 +347,7 @@ input[type="submit"],
 
 .footer-1 {
   background: $first-footer-bg;
-  padding: em(32);
+  padding: em(16);
 }
 
 .footer-1 .menu {
@@ -456,6 +464,14 @@ figcaption {
 .post-list-container .entry {
   @include bp($tablet) {
     width: 50%;
+  }
+}
+
+.post-list-container .post-image-anchor img {
+  width: 100%!important;
+  
+  @include bp($tablet) {
+    width: auto;
   }
 }
 
