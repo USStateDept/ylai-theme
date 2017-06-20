@@ -484,3 +484,33 @@ function check_nonce( $errors, $values ) {
 
   return $errors;
 }
+
+/**
+  * Enable Mailchimp for Formidable to update records and append groups without overwriting
+  *
+  * @since 2.9.6
+  */
+
+add_filter('frm_mlcmp_update_existing', 'always_update_existing');
+function always_update_existing($update){
+  return true;
+}
+
+add_filter('frm_mlcmp_subscribe_data', 'check_frm_data');
+function check_frm_data($data){
+  $data['replace_interests'] = false;
+  return $data;
+}
+
+/**
+  * Inserts Digital Analytics Program (DAP) code
+  *
+  * @since 2.9.6
+  */
+
+function insert_dap(){
+  ?>
+  <script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=DOS&siteplatform=YLAI" id="_fed_an_ua_tag"></script>
+  <?php
+}
+add_action('wp_head', 'insert_dap');
