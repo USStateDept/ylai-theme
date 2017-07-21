@@ -431,7 +431,7 @@ add_action('wp_enqueue_scripts', 'localize_nonce');
  */
 
 function ylai_add_attachment( $attachments, $form, $args ) {
-	if ( $form->form_key == 'get_certificate' ) {
+	if ( $form->form_key == 'get_certificate' || $form->form_key == 'get_membership_badge') {
 
 		$params = array (
 			'key'				=>  $form->form_key,				// form identifier (i.e. project id used to find config)

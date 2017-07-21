@@ -88,31 +88,31 @@ return array(
 		'src_path'				=> 'images/ylai_membership_card_bkgrd.jpg',
 		'save_path'				=> 'generated-images/',
 		'font'	  				=> 'fonts/futura-condensed-medium.ttf',
-		'font_size'				=> 30,
+		'font_size'				=> 70,
 		'color'						=> '#2f78ab',
 		'align'						=> 'center',
 		'line_max_chars' 	=> 40,
-		'line_height' 		=> 42,
+		'line_height' 		=> 80,
 		'text'						=> array (
 			array (
 				'content' 		=> 'FIELD',
 				'field_id'		=> 'full_name', 			// Full name (formidable field key) -- MUST match
 				'x'		  			=> 750,
-				'y'		  			=> 198,
+				'y'		  			=> 250,
 				'font'				=> 'fonts/Futuri Condensed Extra Bold.ttf'
 			),
 			array (
 				'content' 		=> 'FIELD',
 				'field_id'		=> 'country', 	// Country (formidable field key)  -- MUST match
 				'x'		  			=> 750,
-				'y'		  			=> 304
+				'y'		  			=> 360
 			),
 			array (
 				'content' 		=> 'FIELD',      // Year (formidable field key)  -- MUST match
-				'field_id'		=> 'year'
-				'align'				=> 'left'
+				'field_id'		=> 'year',
+				'align'				=> 'left',
 				'x'		  			=> 1048,
-				'y'		  			=> 415
+				'y'		  			=> 452
 			)
 		)
 	)
