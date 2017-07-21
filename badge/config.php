@@ -105,7 +105,7 @@ return array(
 				'content' 		=> 'FIELD',
 				'field_id'		=> 'country', 	// Country (formidable field key)  -- MUST match
 				'x'		  			=> 750,
-				'y'		  			=> 360
+				'y'		  			=> 350
 			),
 			array (
 				'content' 		=> 'FIELD',      // Year (formidable field key)  -- MUST match
