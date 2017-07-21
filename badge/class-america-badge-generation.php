@@ -186,4 +186,3 @@ class America_Badge_Generation {
 	}
 
 }
-

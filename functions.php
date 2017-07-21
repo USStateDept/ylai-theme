@@ -360,7 +360,13 @@ function ylai_post_entry_footer() {
 
 add_action( 'corona_entry_footer', 'ylai_post_entry_footer' );
 
+function ylai_post_addthis() {
+  if ( 'post' === get_post_type() && is_single() ) {
+    echo '<div class="test">test</div>';
+  }
+}
 
+add_action( 'corona_entry_footer', 'ylai_post_addthis' );
 
 
 /**
