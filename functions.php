@@ -252,6 +252,8 @@ function ylai_add_twitter_widget() {
 
 add_action( 'wp_head', 'ylai_add_twitter_widget' );
 
+
+
 /**
  * Inserts pixel code for ad campaign
  */
@@ -277,6 +279,8 @@ function add_ad_pixel(){
   }
 }
 add_action('wp_head', 'add_ad_pixel');
+
+
 
 /**
   * Remove publication date and author from posts
@@ -341,7 +345,6 @@ add_action( 'corona_entry_footer', 'ylai_archive_entry_footer' );
 
 
 
-
 /**
   * Customize the output of `corona_entry_footer` for posts
   *
@@ -360,13 +363,19 @@ function ylai_post_entry_footer() {
 
 add_action( 'corona_entry_footer', 'ylai_post_entry_footer' );
 
+
+
+/**
+  * Inserts addthis social buttons at the bottom of posts
+  */
 function ylai_post_addthis() {
   if ( 'post' === get_post_type() && is_single() ) {
-    //echo '<div class="test">test</div>';
+    echo '<!-- Go to www.addthis.com/dashboard to customize your tools -->  <div>&nbsp;</div> <div class="addthis_inline_share_toolbox_8dq6"></div>';
   }
 }
 
 add_action( 'corona_entry_footer', 'ylai_post_addthis' );
+
 
 
 /**
