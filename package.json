@@ -30,7 +30,7 @@
     "onchange": "^3.2.0",
     "parallelshell": "^2.0.0",
     "postcss-cli": "^2.6.0",
-    "uglifyjs": "^2.4.10",
+    "uglify-js": "^3.0.28",
     "versionbump": "git+ssh://git@github.com/IIP-Design/versionbump.git"
   }
 }
