@@ -256,6 +256,8 @@ add_action( 'wp_head', 'ylai_add_twitter_widget' );
 
 /**
  * Inserts pixel code for ad campaign
+ *
+ * @since 2.9.1
  */
 function add_ad_pixel(){
   if ( is_page('network')) {
@@ -367,6 +369,8 @@ add_action( 'corona_entry_footer', 'ylai_post_entry_footer' );
 
 /**
   * Inserts addthis social buttons at the bottom of posts
+  *
+  * @since 2.9.9
   */
 function ylai_post_addthis() {
   if ( 'post' === get_post_type() && is_single() ) {
@@ -495,10 +499,38 @@ function check_nonce( $errors, $values ) {
 
     }
 
+    if( $values['form_key'] == 'get_certificate_es' ) {
+
+      $result = WPSimpleNonce::checkNonce($_GET['tokenName'], $_GET['tokenValue']);
+
+      if ( ! $result ) {
+         $errors['my_error'] = 'La página de este certificado ha expirado. Regresa a la prueba y termínala de nuevo para generar tu certificado.';
+      }
+
+    }
+
   }
 
   return $errors;
 }
+
+
+
+/**
+  * Custom error message for Spanish certificate
+  *
+  * @since 2.9.10
+  */
+
+  add_filter('frm_invalid_error_message', 'change_frm_form_error_message', 10, 2);
+  function change_frm_form_error_message( $invalid_msg, $args ) {
+      if ( $args['form']->form_key == 'get_certificate_es' ) {
+          $invalid_msg = 'Hubo un problema con el envío. Los errores están indicados abajo.';
+      }
+      return $invalid_msg;
+  }
+
+
 
 /**
   * Enable Mailchimp for Formidable to update records and append groups without overwriting
