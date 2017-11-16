@@ -255,36 +255,6 @@ add_action( 'wp_head', 'ylai_add_twitter_widget' );
 
 
 /**
- * Inserts pixel code for ad campaign
- *
- * @since 2.9.1
- */
-function add_ad_pixel(){
-  if ( is_page('network')) {
-    ?>
-    <!-- Facebook Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1096970680364107');
-    fbq('track', 'PageView');
-    fbq('track', 'ViewContent');
-    </script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1096970680364107&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- DO NOT MODIFY -->
-    <!-- End Facebook Pixel Code -->
-    <?php
-  }
-}
-add_action('wp_head', 'add_ad_pixel');
-
-
-
-/**
   * Remove publication date and author from posts
   *
   * @since 1.1.0
@@ -561,3 +531,101 @@ function insert_dap(){
   <?php
 }
 add_action('wp_head', 'insert_dap');
+
+
+/*
+ * Ad Campaign Tracking Pixels
+ *
+ * @since 2.9.12
+ */
+
+function add_fb_pixel(){
+  ?>
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '153963858679969');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent');
+    </script>
+    <noscript>
+    <img height="1" width="1"
+    src="https://www.facebook.com/tr?id=153963858679969&ev=PageView
+    &noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+  <?php
+}
+add_action('wp_head', 'add_fb_pixel');
+
+function add_twitter_pixel() {
+  ?>
+    <!-- Twitter universal website tag code -->
+    <script>
+    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+    },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+    a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+    // Insert Twitter Pixel ID and Standard Event data below
+    twq('init','nyeda');
+    twq('track','PageView');
+    </script>
+    <!-- End Twitter universal website tag code -->
+  <?php
+}
+add_action('tha_body_bottom', 'add_twitter_pixel');
+
+function add_linkedin_pixel() {
+  ?>
+    <!-- Linkedin universal website tag code -->
+    <script type="text/javascript">
+    _linkedin_data_partner_id = "116828";
+    </script><script type="text/javascript">
+    (function(){var s = document.getElementsByTagName("script")[0];
+    var b = document.createElement("script");
+    b.type = "text/javascript";b.async = true;
+    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+    s.parentNode.insertBefore(b, s);})();
+    </script>
+    <noscript>
+    <img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=116828&fmt=gif" />
+    </noscript>
+    <!-- End Linkedin universal website tag code -->
+  <?php
+}
+add_action('tha_body_bottom', 'add_linkedin_pixel');
+
+function add_adwords_pixel() {
+  ?>
+    <!-- Global site tag (gtag.js) - Google AdWords: 827389569 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-827389569"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-827389569');
+    </script>
+  <?php
+}
+add_action('wp_head', 'add_adwords_pixel');
+
+function add_welcome_pixel(){
+  if ( is_page('welcome')) {
+    ?>
+      <!-- Event snippet for Paid Media Lead Form conversion page -->
+      <script>
+        gtag('event', 'conversion', {'send_to': 'AW-827389569/LAVNCLfYqHkQge3DigM'});
+      </script>
+    <?php
+  }
+}
+add_action('wp_head', 'add_welcome_pixel');
+
+/* ----------- End Ad Campaign Tracking Pixels ----------- */
