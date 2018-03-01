@@ -513,6 +513,14 @@ figcaption {
   margin: 0;
 }
 
+.blog .posts-pagination > a {
+  display: inline-block;
+  padding: em(16);
+}
+
+.blog .posts-pagination > a:first-child {
+  margin-left: em(-16);
+}
 
 
 
