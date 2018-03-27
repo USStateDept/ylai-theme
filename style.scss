@@ -469,7 +469,7 @@ figcaption {
 
 .post-list-container .post-image-anchor img {
   width: 100%!important;
-  
+
   @include bp($tablet) {
     width: auto;
   }
@@ -700,6 +700,7 @@ figcaption {
 
   .entry-content {
     margin: 0;
+    position: relative;
   }
 
   .lessons-list__ordered:before {
