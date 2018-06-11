@@ -689,10 +689,6 @@ figcaption {
   #COURSE-MODULE
 \*------------------------------------*/
 
-#course-container ul {
-  text-indent: 0;
-}
-
 .react-course {
   .entry-title {
     display: none;
@@ -701,92 +697,5 @@ figcaption {
   .entry-content {
     margin: 0;
     position: relative;
-  }
-
-  .lessons-list__ordered:before {
-    left: 2em;
-  }
-
-  .lessons-list-item:before {
-    left: -2.3em;
-    top: 35%;
-  }
-
-  .instructors-list .media-object img {
-    width: 100%;
-  }
-
-  .lessons-list-item > a {
-    background: $button-bg;
-    color: $button-font-color;
-    top: 40%;
-  }
-
-  .lesson .lesson-buttonnav > a {
-    background: $button-bg;
-    color: $button-font-color;
-  }
-
-  .lesson .lesson-buttonnav > a:hover {
-    background: $button-bg;
-  }
-
-  .lesson .lesson-pagination a {
-    background-color: $lesson-drk;
-    font-family: monospace;
-  }
-
-  .lesson .lesson-pagination li::before {
-    background-color: $lesson-drk;
-  }
-
-  .lesson .lesson-pagination .active ~ li a {
-    background-color: $lesson-lgt;
-  }
-
-  .lesson .lesson-pagination .active ~ li::before {
-    background-color: $lesson-lgt;
-  }
-
-  .lesson .lesson-pagination li a {
-    border: none;
-    outline: none;
-  }
-
-  .react-tabs [role=tablist] {
-    border-bottom: none;
-    margin: 0 0 1px;
-  }
-
-  .react-tabs [role=tab][aria-selected=true] {
-    background: $lesson-drk;
-    color: #fff;
-    border-radius: inherit;
-  }
-
-  .react-tabs [role=tab] {
-    border-right: 1px solid white;
-    background: $lesson-lgt;
-    color: white;
-  }
-
-  .ReactTabs__TabPanel {
-    border: 1px solid $lesson-lgt;
-    padding: 0 1em;
-  }
-
-  .ReactTabs__TabPanel ul {
-    list-style-type: disc;
-    margin: 1em;
-  }
-
-  .two-thirds {
-    @include bp($tablet) {
-      width: 100%;
-    }
-
-    @include bp($laptop) {
-      width: 67%;
-    }
   }
 }
