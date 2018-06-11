@@ -28,7 +28,7 @@
     "node-sass-json-importer": "^1.0.6",
     "normalize-css": "^2.3.1",
     "onchange": "^3.2.0",
-    "parallelshell": "^2.0.0",
+    "parallelshell": "^3.0.2",
     "postcss-cli": "^2.6.0",
     "uglify-js": "^3.0.28",
     "versionbump": "git+ssh://git@github.com/IIP-Design/versionbump.git"
