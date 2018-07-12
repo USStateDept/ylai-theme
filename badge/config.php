@@ -147,5 +147,36 @@ return array(
         'font_size'   => 22
       )
     )
+  ),
+  'get_certificate_fr'   =>  array (             // Form that is sending certificate -- MUST match form key
+    'prefix'          => 'ylai_certificate_fr_',
+    'src_path'        => 'images/ylai_certificate_fr_bkgrd.png',
+    'save_path'       => 'generated-images/',
+    'font'            => 'fonts/Oxygen-Bold.otf',
+    'font_size'       => 35,
+    'color'           => '#009bdc',
+    'align'           => 'center',
+    'line_max_chars'  => 40,
+    'line_height'     => 42,
+    'text'            => array (
+      array (
+        'content'     => 'FIELD',
+        'field_id'    => 'course_name_fr',       // course name (formidable field key) -- MUST match
+        'x'           => 550,
+        'y'           => 345
+      ),
+      array (
+        'content'     => 'FIELD',
+        'field_id'    => 'full_name_course_fr',   // Name to appear on certificate (formidable field key)  -- MUST match
+        'x'           => 550,
+        'y'           => 580
+      ),
+      array (
+        'content'     => date("d/m/Y"),      // Date, static field
+        'x'           => 550,
+        'y'           => 680,
+        'font_size'   => 22
+      )
+    )
   )
 );

@@ -414,7 +414,7 @@ add_action('wp_enqueue_scripts', 'localize_nonce');
  */
 
 function ylai_add_attachment( $attachments, $form, $args ) {
-	if ( $form->form_key == 'get_certificate' || $form->form_key == 'get_certificate_es' || $form->form_key == 'get_membership_badge') {
+	if ( $form->form_key == 'get_certificate' || $form->form_key == 'get_certificate_es' || $form->form_key == 'get_certificate_fr' || $form->form_key == 'get_membership_badge') {
 
 		$params = array (
 			'key'				=>  $form->form_key,				// form identifier (i.e. project id used to find config)
@@ -479,6 +479,16 @@ function check_nonce( $errors, $values ) {
 
     }
 
+    if( $values['form_key'] == 'get_certificate_fr' ) {
+
+      $result = WPSimpleNonce::checkNonce($_GET['tokenName'], $_GET['tokenValue']);
+
+      if ( ! $result ) {
+         $errors['my_error'] = 'Cette page a expiré. Veuillez repasser le quiz pour générer votre certificat.';
+      }
+
+    }
+
   }
 
   return $errors;
@@ -487,7 +497,7 @@ function check_nonce( $errors, $values ) {
 
 
 /**
-  * Custom error message for Spanish certificate
+  * Custom error message for Spanish and French certificate
   *
   * @since 2.9.10
   */
@@ -496,6 +506,9 @@ function check_nonce( $errors, $values ) {
   function change_frm_form_error_message( $invalid_msg, $args ) {
       if ( $args['form']->form_key == 'get_certificate_es' ) {
           $invalid_msg = 'Hubo un problema con el envío. Los errores están indicados abajo.';
+      }
+      if ( $args['form']->form_key == 'get_certificate_fr' ) {
+          $invalid_msg = 'La saisie n’a pas été validée. Les erreurs sont indiquées ci-dessous.';
       }
       return $invalid_msg;
   }
