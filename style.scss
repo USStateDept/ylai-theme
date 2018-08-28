@@ -513,12 +513,16 @@ figcaption {
   margin: 0;
 }
 
-.blog .posts-pagination > a {
+.archive .posts-pagination > a,
+.blog .posts-pagination > a,
+.search .posts-pagination > a {
   display: inline-block;
   padding: em(16);
 }
 
-.blog .posts-pagination > a:first-child {
+.archive .posts-pagination > a:first-child,
+.blog .posts-pagination > a:first-child,
+.search .posts-pagination > a:first-child {
   margin-left: em(-16);
 }
 
