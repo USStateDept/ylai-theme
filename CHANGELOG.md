@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v2.10.9](https://github.com/IIP-Design/ylai-theme/tree/v2.10.9)
+
+**Changed:**
+- Set a `max-width` override for blog, archive, and search thumbnails to prevent image from appearing too large when the viewport is over `768px` or `48em`
+
 ## [v2.10.8](https://github.com/IIP-Design/ylai-theme/tree/v2.10.8)
 
 **Security:**
