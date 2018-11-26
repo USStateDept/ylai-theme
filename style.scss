@@ -498,6 +498,7 @@ figcaption {
   @include bp($tablet) {
     float: left;
     margin-right: em(16);
+    max-width: 300px !important;
   }
 }
 
